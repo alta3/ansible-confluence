@@ -1,0 +1,51 @@
+---
+- hosts: confluence
+  user: ubuntu
+  sudo: yes
+  vars:
+    dbname: confluence
+    dbuser: confluenceuser
+    confl_bin: atlassian-confluence-5.5-x64.bin
+    confl_url: http://www.atlassian.com/software/confluence/downloads/binary/{{confl_bin}}
+  vars_files:
+   - postgres_pass.yml
+  
+  tasks: 
+   - name: apt update
+     apt:  update_cache=yes cache_valid_time=3600
+
+   - name: apt upgrade
+     apt: upgrade=dist
+
+   - name: ensure postgres installed
+     apt: name={{item}} state=present
+     with_items:
+      - postgresql
+      - postgresql-contrib
+      - libpq-dev
+      - python-psycopg2 
+   
+   - name: ensure passwordless postgres user
+     copy: src=files/sudoers dest=/etc/sudoers
+  
+   - name: ensure database created   
+     postgresql_db: name={{dbname}} encoding='UTF-8'
+     sudo_user: postgres
+
+   - name: ensure user has access to database
+     postgresql_user: db={{dbname}} name={{dbuser}} password={{dbpass}} priv=ALL
+     sudo_user: postgres
+     
+   - name: ensure user does not have unnecessary privilege
+     postgresql_user: name={{dbuser}} role_attr_flags=NOSUPERUSER,NOCREATEDB
+     sudo_user: postgres
+
+   - name: download confluence
+     get_url: url={{confl_url}} dest=/var/tmp/{{confl_bin}} mode=0755
+
+   - name: copy down response.varfile
+     copy: src=files/response.varfile dest=/var/tmp/response.varfile 
+
+   - name: install confluence
+     command: /var/tmp/{{confl_bin}} -q -varfile /var/tmp/response.varfile
+       creates=/opt/atlassian/confluence/install.reg
