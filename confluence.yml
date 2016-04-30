@@ -49,3 +49,7 @@
    - name: install confluence
      command: /var/tmp/{{confl_bin}} -q -varfile /var/tmp/response.varfile
        creates=/opt/atlassian/confluence/install.reg
+
+   - name: copy confluence.conf so that UPSTART starts confluence on reboot
+     copy: src=files/confluence.conf dest=/etc/init/confluence.conf
+
