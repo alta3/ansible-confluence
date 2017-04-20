@@ -34,7 +34,7 @@ Log into confluence as **admin** and click here
 <img src="confluence backup step 1.jpg" height="100" />
 
 ### Backup step 2
-Scroll way to near the bottom of the screen, and on the left click Backup &  Restore  
+Scroll down to near the bottom of the screen, and on the left nav bar, click Backup &  Restore  
 <img src="confluence backup step 2.jpg" height="100" />
 
 ### Backup step 3
