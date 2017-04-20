@@ -23,3 +23,9 @@ Things we'd like to add
  * server.xml updater/template
  * backup management  
 
+## Confluence facts
+Confluence home is determined by:   
+  `/home/ubuntu/atlassian/confluence/confluence/WEB-INF/classes/confluence-init.properties`
+Currently, the home directory is set to:  
+   `confluence.home = /home/ubuntu/atlassian/application-data/confluence`
+
