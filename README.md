@@ -30,6 +30,7 @@ Currently, the home directory is set to:
    `confluence.home = /home/ubuntu/atlassian/application-data/confluence`
 
 ### Backup step 1
+Log into confluence as **admin** and click here
 <img src="confluence backup step 1.jpg" height="100" />
 
 ### Backup step 2
