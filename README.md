@@ -30,22 +30,22 @@ Currently, the home directory is set to:
    `confluence.home = /home/ubuntu/atlassian/application-data/confluence`
 
 ### Backup step 1
-Log into confluence as **admin** and click here
+Log into confluence as **admin** and click here  
 <img src="confluence backup step 1.jpg" height="100" />
 
 ### Backup step 2
-Scroll way to near the bottom of the screen, and on the left click Backup &  Restore
+Scroll way to near the bottom of the screen, and on the left click Backup &  Restore  
 <img src="confluence backup step 2.jpg" height="100" />
 
 ### Backup step 3
-Make sure "Back up attachments is checked and click the Back Up button
+Make sure "Back up attachments is checked and click the Back Up button  
 <img src="confluence backup step 3.jpg" height="100" />
 
 ### Backup step 4
-In about 10 to 15 seconds, you will be told where you backup is waiting for you. 
-Before you ask, NO, it does not download to your browser!  That would be way to easy.
+In about 10 to 15 seconds, you will be told where you backup is waiting for you.  
+Before you ask, NO, it does not download to your browser!  That would be way to easy.  
 <img src="confluence backup step 4.jpg" height="100" />
 
-SCP into the server and grab a copy of that file. Here is a screen shot of the deed being done with winSCP
+SCP into the server and grab a copy of that file. Here is a screen shot of the deed being done with winSCP.  
 ### Backup step 5
 <img src="confluence backup step 5.jpg" height="300" />
