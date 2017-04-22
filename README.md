@@ -21,25 +21,33 @@ Files you need to look at and most likely edit
 Ansible Vault is needed to unlock and use the postgress password.  See [Ansible Vault](http://docs.ansible.com/playbooks_vault.html) documentation.
 
 ## Actions
-This playbook does the following things:
- * update / upgrade apt
- * install postgresql
- * enables postgresql actions (passwordless sudo)
- * creates confluence database and user with appropriate privilege levels
- * installs confluence
- 
+This playbook installs confluence. The process is not fully automated. You will need to do the following things:  
+1. Grab a backup of the current confluence system (See the five (5) backup steps below)  
+2. Set up a server, installing ubuntu 16.04, then run this playbook.  
+3. Browse the server `http://<ip_address:8090` and perform the post install steps below  
+4. ssh into the server and do these steps:  
+   1. This playbook install confluence in **/opt/atlassian/**, so start confluence like this:  
+      `sh /opt/atlassian/confluence/bin/start-confluence.sh`  
+   2. Set the path, in our case we want to use *** "/wiki"  *** Example:  **https://alta3.com/wiki**  
+      `sudo vim /opt/atlassian/confluence/conf/server.xml` and edit `context path=` to be `"\wiki"`:
+
+             `<context path="/wiki" docBase="../confluence" debug="0" reloadable'"false" useHttpOnly="true">`
+             
+   3. edit the `confluence.cfg.xml` file
+      `sudo vim /var/atlassian/application-data/confluence/confluence.cfg.xml` and Look for this line and add `/wiki` as follows:
+
+              `<property name="confluence.webapp.context.path">/wiki</property>`
+   4. `sudo su` to becomre root
+   
+   5. `crontab -e` and select vim, to create a cron job as root
+   
+   6. Add this line of code to the crontab: 
+       `@reboot ./opt/atlassian/confluence/bin/start-confluence.sh`
 ## TODO
 Things we'd like to add
- * service handlers for stop/starting confluence
- * server.xml updater/template
- * backup management  
+ * add backup management to the cron  
 
-## Confluence facts
-Confluence home is determined by:   
-  `/home/ubuntu/atlassian/confluence/confluence/WEB-INF/classes/confluence-init.properties`
-Currently, the home directory is set to:  
-   `confluence.home = /home/ubuntu/atlassian/application-data/confluence`
-
+# Backup process from old server
 ### Backup step 1
 Log into confluence as **admin** and click here  
 <img src="images/confluence-backup-step-1.jpg" height="100" />
@@ -55,8 +63,9 @@ Make sure "Back up attachments is checked and click the Back Up button
 ### Backup step 4
 In about 10 to 15 seconds, you will be told where you backup is waiting for you.  
 Before you ask, NO, it does not download to your browser!  That would be way to easy.  
-<img src="confluence-backup-step-4.jpg" height="100" />
+<img src="images/confluence-backup-step-4.jpg" height="100" />
 
 SCP into the server and grab a copy of that file. Here is a screen shot of the deed being done with winSCP.  
 ### Backup step 5
-<img src="confluence-backup-step-5.jpg" height="300" />
+<img src="images/confluence-backup-step-5.jpg" height="300" />
+
