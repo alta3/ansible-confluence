@@ -69,4 +69,22 @@ SCP into the server and grab a copy of that file. Here is a screen shot of the d
 ### Backup step 5
 <img src="images/confluence-backup-step-5.jpg" height="300" />
 
+# Post Intallation Process  
+### Setup step 1 Select Production installation  
+<img src="images/confluence-setup-1.jpg" height="100" />  
 
+### Setup step 2 Select Direct JDBC  
+<img src="images/confluence-setup-2.jpg" height="100" />  
+
+### Setup step 3 Select Postgres as the External Database  
+<img src="images/confluence-setup-3.jpg" height="100" />  
+
+### Setup step 4 Set up Postgres user and password  
+<img src="images/confluence-setup-4.jpg" height="100" />  
+
+### Setup step 5 Request restore from backup  
+<img src="images/confluence-setup-5.jpg" height="100" />  
+
+
+### Setup step 5 Drop the backup file on the browser and this will appear  
+<img src="images/confluence-setup-6.jpg" height="100" />  
