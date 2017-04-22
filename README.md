@@ -25,7 +25,7 @@ This playbook installs confluence. The process is not fully automated. You will 
 1. Grab a backup of the current confluence system (See the five (5) backup steps below)  
 2. Set up a server, installing ubuntu 16.04, then run this playbook.  
 3. Browse the server `http://<ip_address:8090` and perform the post install steps below  
-4. ssh into the server and do these steps:  
+4. ssh into the confluence server and do these steps:  
    1. This playbook installs confluence in **/opt/atlassian/**, so start confluence like this:  
       `sudo ./opt/atlassian/confluence/bin/start-confluence.sh`  
    2. Set the path, in our case we want to use ***"/wiki"*** Example:  **https://alta3.com/wiki**  
