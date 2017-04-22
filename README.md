@@ -65,8 +65,8 @@ In about 10 to 15 seconds, you will be told where you backup is waiting for you.
 Before you ask, NO, it does not download to your browser!  That would be way to easy.  
 <img src="images/confluence-backup-step-4.jpg" height="100" />
 
-SCP into the server and grab a copy of that file. Here is a screen shot of the deed being done with winSCP.  
 ### Backup step 5
+SCP into the server and grab a copy of that file. Here is a screen shot of the deed being done with winSCP.  
 <img src="images/confluence-backup-step-5.jpg" height="300" />
 
 # Post Intallation Process  
