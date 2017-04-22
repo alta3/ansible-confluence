@@ -29,7 +29,7 @@ This playbook installs confluence. The process is not fully automated. You will 
    1. This playbook install confluence in **/opt/atlassian/**, so start confluence like this:  
       `sudo ./opt/atlassian/confluence/bin/start-confluence.sh`  
    2. Set the path, in our case we want to use *** "/wiki"  *** Example:  **https://alta3.com/wiki**  
-      `sudo vim /opt/atlassian/confluence/conf/server.xml` and edit `context path=` to be `"\wiki"`:
+      `sudo vim /opt/atlassian/confluence/conf/server.xml` and edit `context path=` to be `"/wiki"`:
 
              `<context path="/wiki" docBase="../confluence" debug="0" reloadable'"false" useHttpOnly="true">`
              
