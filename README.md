@@ -2,11 +2,22 @@
 
 An ansible playbook for installing and configuring confluence
 
-Example run: `ansible-playbook -i hosts confluence.yml --ask-vault-pass`
+Example run: `ansible-playbook confluence.yml --ask-vault-pass`
 
 ## Assumptions
-This playbook is tested on a fresh Ubuntu 14.04 sever install.  Things that may need adapted for other environments include: username (ubuntu), package management (apt), hostsfile (ip).
+This playbook is tested on a fresh Ubuntu 16.04 sever install.
 
+Defaults:
+  - username: ubuntu
+  - package_mgnt apt
+  - hostsfile: hosts
+  - database: postgres
+
+Files you need to look at and most likely edit
+  - `hosts` - check the IP address matches your desination
+  - `confluence.yml`
+      - line 8: update the binary to the one used today
+      - Line 9: This will change over time, so update it along with line 8
 Ansible Vault is needed to unlock and use the postgress password.  See [Ansible Vault](http://docs.ansible.com/playbooks_vault.html) documentation.
 
 ## Actions
