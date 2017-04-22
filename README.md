@@ -86,5 +86,5 @@ SCP into the server and grab a copy of that file. Here is a screen shot of the d
 <img src="images/confluence-setup-5.jpg" height="200" />  
 
 
-### Setup step 5 Drop the backup file on the browser and this will appear  
+### Setup step 6 Drop the backup file on the browser and this will appear  
 <img src="images/confluence-setup-6.jpg" height="200" />  
