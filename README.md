@@ -16,11 +16,11 @@ Defaults:
 Files you need to look at and most likely edit
   - `hosts` - check the IP address matches your desination
   - `confluence.yml`
-      - line 8: update the binary to the one used today
-      - Line 9: This will change over time, so update it along with line 8
-Ansible Vault is needed to unlock and use the postgress password.  See [Ansible Vault](http://docs.ansible.com/playbooks_vault.html) documentation.
+      - update the binary file name
+      - update the URL to where the above file is found
+      - Ansible Vault is needed to unlock and use the postgress password.  
 
-## Actions
+### Actions
 This playbook installs confluence. The process is not fully automated. You will need to do the following things:  
 1. Grab a backup of the current confluence system (See the five (5) backup steps below)  
 2. Set up a server, installing ubuntu 16.04, then run this playbook.  
